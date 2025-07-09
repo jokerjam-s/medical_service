@@ -1,0 +1,49 @@
+﻿<Window x:Class="medical.Windows.ServiceSingleWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:medical.Windows"
+        mc:Ignorable="d"
+        Title="ServiceSingleWindow" Height="200" Width="500">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="8" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="8" />
+        </Style>
+        <Style TargetType="DatePicker">
+            <Setter Property="Margin" Value="8" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="MinWidth" Value="60" />
+            <Setter Property="Margin" Value="8" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Название" />
+        <TextBlock Grid.Row="1">Стоимость</TextBlock>
+        <TextBlock Grid.Row="2">Длительность</TextBlock>
+
+        <TextBox Text="{Binding Path=Name}" Grid.Column="1"></TextBox>
+        <TextBox Text="{Binding Path=Cost}" Grid.Row="1" Grid.Column="1"/>
+        <TextBox Text="{Binding Path=Duration}" Grid.Row="2" Grid.Column="1"/>
+
+        <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Click="Button_Click" IsDefault="True">OK</Button>
+            <Button IsCancel="True">Отмена</Button>
+        </StackPanel>
+    </Grid>
+</Window>
